@@ -1,0 +1,291 @@
+Bash 
+
+  
+
+set remUsername variable to null 
+
+set remPassword variable to null 
+
+  
+
+createAccount() 
+
+{ 
+
+ask: "Please enter your desired username. It must include more than 4 characters and can't already be taken." 
+
+accept user input as remUsername 
+
+if remUsername is greater than 4 characters and isn't taken, then 
+
+ask: "Please enter your desired password. It must contain at least 6 characters, a 		lowercase and uppercase letter, a number, and a special character." 
+
+if remPassword is at least 6 characters and contains a lowercase and uppercase 		letter, a number, and a special character, then 
+
+save information in remember.r account file 
+
+else, if (remPassword is less than 6 characters), then 
+
+say: "Your password must be at least 6 characters." 
+
+else, (if remPassword doesn't include the right characters) 
+
+say: "Your password doesn't have a lowercase and uppercase letter, a 			number, and a special character. " 
+
+else, if (remUsername is taken), then 
+
+say: "That username is taken" 
+
+else,  if (remUsername is less than 4 characters), then 
+
+say: "Your username must be at least 4 characters." 
+
+} 
+
+ 
+
+change password(){ 
+
+while loop 
+
+ask "enter new password" 
+
+new_password = input() 
+
+ask "re-enter new password" 
+
+confirm = input() 
+
+if(new_password == confirm) 
+
+set password hash to hash(new_password) in account file 
+
+break 
+
+else 
+
+say "password doesn't match" 
+
+} 
+
+change account name(){ 
+
+while loop 
+
+ask "enter new account name" 
+
+new_account = input() 
+
+if len(new_account) < 4 
+
+say "account needs to be longer then 4 characters" 
+
+else 
+
+break 
+
+change the account name to new account name 
+
+}  
+
+delete account(){ 
+
+ask "are you sure you want to delete account Y/N? 
+
+user_input = input() 
+
+while loop 
+
+if user_input == "Y" 
+
+log out user 
+
+delete user account from file 
+
+elif user_input == "N" 
+
+break 
+
+ 
+
+} 
+
+ 
+
+readData() 
+
+{ 
+
+print user account file using the less command 
+
+} 
+
+writeData() 
+
+{ 
+
+ask: "What is the name of the website?" 
+
+accept user input as website 
+
+ask: "What is your username on this website?" 
+
+accept user input as webUsername 
+
+do while loop{ (complete once, re-do if necessary) 
+
+ask: "What is the password for the username [webUsername]?" 
+
+accept user input as webPassword 
+
+say: "Please re-enter your password to verify" 
+
+accept user input as webPasswordTemp 
+
+if webPassword is the same as webPasswordTemp, then continue past the loop 
+
+if they are not the same, restart loop 
+
+save website, webUsername, and webPassword to file		 
+
+} 
+
+ 
+
+modifyData() 
+
+{ 
+
+do while loop 	 
+
+{ 
+
+ask: "What website would you like to change the username and password of?" 
+
+accept user input as website 
+
+if user input is in file, then proceed. 
+
+else (if user input isn't in file), then restart loop 
+
+}  
+
+ask: "What do you want to change the username on this website to?" 
+
+accept user input as webUsername 
+
+do while loop{ (complete once, re-do if necessary) 
+
+ask: "What is the new password for the username [webUsername]?" 
+
+accept user input as webPassword 
+
+say: "Please re-enter your password to verify" 
+
+accept user input as webPasswordTemp 
+
+if webPassword is the same as webPasswordTemp, then continue past the loop 
+
+if they are not the same, restart loop 
+
+save website, webUsername, and webPassword to file 
+
+} 
+
+ 
+
+deleteData() 
+
+{ 
+
+do while loop 	 
+
+{ 
+
+ask: "What website would you like to delete?" 
+
+accept user input as website 
+
+if user input is in file, then proceed. 
+
+else (if user input isn't in file), then restart loop 
+
+} 
+
+delete lines on user accounts file for website 
+
+ 
+
+} 
+
+ 
+
+ 
+
+ask "What is your Username?" 
+
+(additionally, there is an option to create an account, which runs the createAccount function) 
+
+  
+
+if username variable is in Remember.r account file and it’s valid, then 
+
+ask "What is your Password for [the username you entered]?" 
+
+ 
+
+else  
+
+say "That username is not in our records, go back to create an account" 
+
+if (hash(remPassword) is user account password hash) 
+
+show all user access option: 
+
+while loop{ 
+
+action = user input action 
+
+if (action == read data) 
+
+call read data 
+
+if(action == write data) 
+
+call write data 
+
+if(action == delete data) 
+
+call delete data 
+
+if(action == modify data) 
+
+call modify data 
+
+if(action == change password) 
+
+call change password 
+
+if(action == change username) 
+
+call change username 
+
+if(action == delete account) 
+
+call delete account 
+
+if(action == quit app) 
+
+quit() 
+
+ 
+
+ 
+
+ 
+
+else 
+
+say “wrong password re-enter password” 
+
+ 
