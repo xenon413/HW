@@ -1,0 +1,13 @@
+1886: Coca Cola
+1893: Pepsi Cola
+1940: Mountain Dew
+1800: Root Beer
+1876: Moxie
+1999: Sierra Mist
+1885: Dr.Pepper
+1961: Sprite
+1940: Fanta
+1929: 7up
+1889: Shasta Cola
+1919: A&W Root Beer
+1898: Barq's Root Beer
