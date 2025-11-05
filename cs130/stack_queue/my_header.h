@@ -19,24 +19,24 @@ class Linked_list {
 private:
 	class Node {
 	public:
-		Node* next=nullptr;
+		Node* next = nullptr;
 		Key_val item;
 		Node();
 
-		Node(string str, Node* next=nullptr, char sep=':');
+		Node(string str, Node* next = nullptr, char sep = ':');
 
-		Node(string key, string val, Node* next=nullptr);
+		Node(string key, string val, Node* next = nullptr);
 
-		Node(Key_val item, Node* next=nullptr);
+		Node(Key_val item, Node* next = nullptr);
 	};
 
-	Node *head=nullptr, *tail=nullptr;
+	Node* head = nullptr, * tail = nullptr;
 
 public:
 	string about();
 
 	Linked_list();
-	
+
 	void add_head(string str);
 	void add_head(Key_val item);
 
