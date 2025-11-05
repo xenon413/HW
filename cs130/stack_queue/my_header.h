@@ -1,12 +1,10 @@
-//did some extra stuff and small modification besides the requirement because I like coding
-
 #include<iostream>
 #include<fstream>
 #include<string>
 #include<vector>
 
 using namespace std;
-const string PATH = "C:\\Users\\cheny\\Downloads\\Fall 2025 Test Files\\california.txt";
+const string PATH = "test file path";
 
 class Key_val {
 public:
